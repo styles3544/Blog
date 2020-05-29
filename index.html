@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="unorderedlist">
+        <ul class="posts" style="list-style-type:none;">
+
+         {%- if site.python_projects.size > 0 -%}
+            
+            {% for python_projects in site.python_projects reversed limit:2 %}
+            <li class="post-container">
+            <li>
+                <a href="{{ python_projects.url | relative_url }}">
+                    <h3>{{ python_projects.name}}</h3>
+                </a>
+                <span class="date">{{ python_projects.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ python_projects.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ python_projects.content | markdownify | strip_html | truncatewords: 35  }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
+
+
+            {%- if site.anime.size > 0 -%}
+            
+            {% for anime in site.anime reversed limit:2 %}
+            <li class="post-container">
+            <li>
+                <a href="{{ anime.url | prepend: site.baseurl }}">
+                    <h3>{{ anime.name}}</h3>
+                </a>
+                <span class="date">{{ python_projects.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ anime.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ anime.content | markdownify | strip_html | truncatewords: 35  }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
+
+            {%- if site.posts.size > 0 -%}
+            
+            {% for post in site.posts limit:2 %}
+            <li class="post-container">
+            <li>
+                <a href="{{  post.url | relative_url }}">
+                    <h3>{{ post.title}}</h3>
+                </a>
+                <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ post.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ post.content | strip_html | truncatewords: 35 }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
+            
+          
+
+
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+
+        <div class="unorderedlist">
+            <ul class="posts" >
+              
+           {% for cat in site.categories %}
+                <h4>{{cat[0] | capitalize}}</h4>
+              {% for post in cat[1]  %}
+                <li >
+                        <a href="{{ post.url | prepend: site.baseurl }}"><h6>{{ post.title}}</h6></a>
+                  </li>
+                {% endfor %}
+              {% endfor %}
+                 
+                 <h4> Python Projects</h4>  
+            {% for python_projects in site.python_projects  %}
+            
+                    <li>
+                        <a href="{{ python_projects.url | prepend: site.baseurl }}"><h6>{{ python_projects.name}}</h6></a>
+                        
+                  </li>
+                {% endfor %}
+                 
+           
+                
+             
+            
+            </ul>
+        </div>
+  
