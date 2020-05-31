@@ -14,8 +14,8 @@ body, html{
 }
 
 .page-content {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     width: 90%;
     margin:0 auto;
 }
