@@ -20,8 +20,8 @@
         {% for post in site.posts limit:10 %}
         <entry>
         <title>{{ post.title}}</title>
-            <id> {{  post.url | relative_url }} </id>
-            <link href="{{  post.url | relative_url }}"/>
+            <id> https://styles3544.github.io{{  post.url | relative_url }} </id>
+            <link href="https://styles3544.github.io{{  post.url | relative_url }}"/>
             <updated>{{ post.date | date_to_xmlschema }}</updated>
             <summary>
                 {%- if post.excerpt -%}
@@ -36,8 +36,8 @@
         {% for python_projects in site.python_projects reversed limit:10 %}
         <entry>
             <title>{{ python_projects.name}}</title>
-            <id> {{ python_projects.url | relative_url }} </id>
-            <link href="{{ python_projects.url | relative_url }}"/>
+            <id> https://styles3544.github.io{{ python_projects.url | relative_url }} </id>
+            <link href="https://styles3544.github.io{{ python_projects.url | relative_url }}"/>
             <updated>{{ python_projects.date | date_to_xmlschema }}</updated>
             <summary>
                 {{ python_projects.content | markdownify | strip_html | truncatewords: 50  }}
@@ -50,8 +50,8 @@
     {% for anime in site.anime reversed limit:10 %}
         <entry>
             <title>{{ anime.name}}</title>
-            <id> {{ anime.url | prepend: site.baseurl }} </id>
-            <link href="{{ anime.url | prepend: site.baseurl }}"/>
+            <id> https://styles3544.github.io{{ anime.url | prepend: site.baseurl }} </id>
+            <link href="https://styles3544.github.io{{ anime.url | prepend: site.baseurl }}"/>
             <updated>{{ anime.date | date_to_xmlschema }}</updated>
             <summary>
                 {{ anime.content | markdownify | strip_html | truncatewords: 50  }}
