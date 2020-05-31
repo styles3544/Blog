@@ -1,24 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-29T13:18:45-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">styles Blog</title><subtitle>blog</subtitle><entry><title type="html">Noises</title><link href="http://localhost:4000/Blog/empirical/2020/05/27/Noises/" rel="alternate" type="text/html" title="Noises" /><published>2020-05-27T17:14:47-04:00</published><updated>2020-05-27T17:14:47-04:00</updated><id>http://localhost:4000/Blog/empirical/2020/05/27/Noises</id><content type="html" xml:base="http://localhost:4000/Blog/empirical/2020/05/27/Noises/">&lt;p&gt;It’s so quiet right now. I can hear the wind rushing past the closed window beside my bed, trying to get through it. Ticking of the clock and sound of insects. 
-I can also hear the breathing of others in the neighbouring room indicating that they’re already asleep.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" >
+    <link href="{{ site.url }}/feed.xml" rel="self" type="application/atom+xml" />
+    <link href="{{ site.url }}" rel="alternate" type="text/html" />
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>{{ site.url }}/feed.xml</id>
+    <title type="html">styles Blog</title>
+    <subtitle>{{ site.description | strip_html | lstrip | rstrip }}</subtitle>
+        <author>
+         <name>{%- if site.author -%}
+            {{ site.author }}
+          {%- else -%}
+            {{ site.title }}
+          {%- endif -%}</name>
+        </author>
 
-&lt;p&gt;My eyes are also heavy which is, to be honest, unusual for me. It might be possible that I’m exhausted, as it was a long day with a lot of noises.&lt;/p&gt;
+    {%- if site.posts.size > 0 -%}
+        {% for post in site.posts limit:10 %}
+        <entry>
+        <title>{{ post.title}}</title>
+            <id> {{  post.url | relative_url }} </id>
+            <link href="{{  post.url | relative_url }}"/>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <summary>
+                {%- if post.excerpt -%}
+                    {{ post.excerpt | strip_html | lstrip | rstrip }}
+                {%- endif -%}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
+    
+    {%- if site.python_projects.size > 0 -%}
+        {% for python_projects in site.python_projects reversed limit:10 %}
+        <entry>
+            <title>{{ python_projects.name}}</title>
+            <id> {{ python_projects.url | relative_url }} </id>
+            <link href="{{ python_projects.url | relative_url }}"/>
+            <updated>{{ python_projects.date | date_to_xmlschema }}</updated>
+            <summary>
+                {{ python_projects.content | markdownify | strip_html | truncatewords: 50  }}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
 
-&lt;p&gt;Noises that can make you tired.&lt;/p&gt;</content><author><name></name></author><summary type="html">It’s so quiet right now. I can hear the wind rushing past the closed window beside my bed, trying to get through it. Ticking of the clock and sound of insects. I can also hear the breathing of others in the neighbouring room indicating that they’re already asleep.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/Blog/jekyll/update/2020/05/27/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-05-27T17:14:47-04:00</published><updated>2020-05-27T17:14:47-04:00</updated><id>http://localhost:4000/Blog/jekyll/update/2020/05/27/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/Blog/jekyll/update/2020/05/27/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+    {%- if site.anime.size > 0 -%}
+    {% for anime in site.anime reversed limit:10 %}
+        <entry>
+            <title>{{ anime.name}}</title>
+            <id> {{ anime.url | prepend: site.baseurl }} </id>
+            <link href="{{ anime.url | prepend: site.baseurl }}"/>
+            <updated>{{ anime.date | date_to_xmlschema }}</updated>
+            <summary>
+                {{ anime.content | markdownify | strip_html | truncatewords: 50  }}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+</feed>
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Still Thinking</title><link href="http://localhost:4000/Blog/python/2020/05/15/Still-Thinking/" rel="alternate" type="text/html" title="Still Thinking" /><published>2020-05-15T00:00:00-04:00</published><updated>2020-05-15T00:00:00-04:00</updated><id>http://localhost:4000/Blog/python/2020/05/15/Still-Thinking</id><content type="html" xml:base="http://localhost:4000/Blog/python/2020/05/15/Still-Thinking/">&lt;p&gt;It’s morning already and I didn’t sleep, again. Was doing few things last night which ofcourse includes putting my time and energy in 
-building this blog site of mine but there was also something which I had to complete. Time sure passes by fast.&lt;/p&gt;
 
-&lt;p&gt;Feels like I spent whole night just by writing few lines of codes but tbh I know that I did more than that. I guess I can’t argue about it as it’s birds chirping and sun rising filling my whole room with light. Doesn’t matter what I did last night, right?&lt;/p&gt;
-
-&lt;p&gt;With the new morning sun, another day passed just like that. I feel a hope inside me to make the next one more productive. Hope I can.
-Hope is a funny thing. It gives you strength to hold on and move forward even though you know that it’s all a false assurance that we are feeding ourselves with, just to keep going.&lt;/p&gt;</content><author><name></name></author><summary type="html">It’s morning already and I didn’t sleep, again. Was doing few things last night which ofcourse includes putting my time and energy in building this blog site of mine but there was also something which I had to complete. Time sure passes by fast. Feels like I spent whole night just by writing few lines of codes but tbh I know that I did more than that. I guess I can’t argue about it as it’s birds chirping and sun rising filling my whole room with light. Doesn’t matter what I did last night, right? With the new morning sun, another day passed just like that. I feel a hope inside me to make the next one more productive. Hope I can. Hope is a funny thing. It gives you strength to hold on and move forward even though you know that it’s all a false assurance that we are feeding ourselves with, just to keep going.</summary></entry></feed>
