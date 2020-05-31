@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" >
+    <link href="{{ site.url }}/feed.xml" rel="self" type="application/atom+xml" />
+    <link href="{{ site.url }}" rel="alternate" type="text/html" />
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>{{ site.url }}/feed.xml</id>
+    <title type="html">styles Blog</title>
+    <subtitle>{{ site.description | strip_html | lstrip | rstrip }}</subtitle>
+        <author>
+         <name>{%- if site.author -%}
+            {{ site.author }}
+          {%- else -%}
+            {{ site.title }}
+          {%- endif -%}</name>
+        </author>
+
+    {%- if site.posts.size > 0 -%}
+        {% for post in site.posts limit:10 %}
+        <entry>
+        <title>{{ post.title}}</title>
+            <id> {{  post.url | relative_url }} </id>
+            <link href="{{  post.url | relative_url }}"/>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <summary>
+                {%- if post.excerpt -%}
+                    {{ post.excerpt | strip_html | lstrip | rstrip }}
+                {%- endif -%}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
+    
+    {%- if site.python_projects.size > 0 -%}
+        {% for python_projects in site.python_projects reversed limit:10 %}
+        <entry>
+            <title>{{ python_projects.name}}</title>
+            <id> {{ python_projects.url | relative_url }} </id>
+            <link href="{{ python_projects.url | relative_url }}"/>
+            <updated>{{ python_projects.date | date_to_xmlschema }}</updated>
+            <summary>
+                {{ python_projects.content | markdownify | strip_html | truncatewords: 50  }}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
+
+    {%- if site.anime.size > 0 -%}
+    {% for anime in site.anime reversed limit:10 %}
+        <entry>
+            <title>{{ anime.name}}</title>
+            <id> {{ anime.url | prepend: site.baseurl }} </id>
+            <link href="{{ anime.url | prepend: site.baseurl }}"/>
+            <updated>{{ anime.date | date_to_xmlschema }}</updated>
+            <summary>
+                {{ anime.content | markdownify | strip_html | truncatewords: 50  }}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
+
+</feed>
+
+
+
+
