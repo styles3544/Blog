@@ -19,7 +19,7 @@ title: styles Blog
 description: >- # this means to ignore newlines until "baseurl:"
  There are two types of pain, one that hurts you and the other that changes you.
 baseurl: "/Blog" # the subpath of your site, e.g. /blog
-url: "https://styles.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://styles3544.github.io/Blog/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  styles3544
 
