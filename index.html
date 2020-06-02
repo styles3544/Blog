@@ -5,6 +5,27 @@ layout: default
 <div class="container">
     <div class="unorderedlist">
         <ul class="posts" style="list-style-type:none;">
+            
+            
+            
+                    {%- if site.posts.size > 0 -%}
+            
+            {% for post in site.posts limit:2 %}
+            <li class="post-container">
+            <li>
+                <a href="{{  post.url | relative_url }}">
+                    <h3>{{ post.title}}</h3>
+                </a>
+                <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ post.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ post.content | strip_html | truncatewords: 35 }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
 
          {%- if site.python_projects.size > 0 -%}
             
@@ -45,24 +66,7 @@ layout: default
             {% endfor %}
             {%- endif -%}
 
-            {%- if site.posts.size > 0 -%}
-            
-            {% for post in site.posts limit:2 %}
-            <li class="post-container">
-            <li>
-                <a href="{{  post.url | relative_url }}">
-                    <h3>{{ post.title}}</h3>
-                </a>
-                <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                <p class="categories">
-                    {{ post.categories | join: ', ' }}
-                </p>
-                <p id="para">
-                    {{ post.content | strip_html | truncatewords: 35 }}
-                </p>
-            </li>
-            {% endfor %}
-            {%- endif -%}
+ 
             
           
 
