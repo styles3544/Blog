@@ -34,9 +34,9 @@ collections:
   python_projects:
     output: true
     permalink: /python/:name/
-  anime:
+  empirical:
     output: true
-    permalink: /anime/:path/
+    permalink: /empirical/:name/
 
 permalink: pretty
 

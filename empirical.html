@@ -1,0 +1,34 @@
+---
+layout: default
+title: Empirical
+permalink: /empirical/
+---
+
+<div class="container">
+    <div class="unorderedlist">
+        <ul class="posts" style="list-style-type:none;">
+
+            {%- if site.empirical.size > 0 -%}
+            
+            {% for empirical in site.empirical reversed %}
+            <li class="post-container">
+            <li>
+                <a href="{{ empirical.url | relative_url }}">
+                    <h3>{{ empirical.name}}</h3>
+                </a>
+                <span class="date">{{ empirical.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ empirical.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ empirical.content | markdownify | strip_html | truncatewords: 35  }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
+
+        </ul>
+    </div>
+    <br/>
+    <p class="rss-subscribe">subscribe <a href="{{ site.baseurl }}/feed.xml">via RSS</a></p>
+</div>
