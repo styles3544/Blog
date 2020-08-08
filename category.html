@@ -23,12 +23,31 @@ layout: default
                         
                   </li>
                 {% endfor %}
-                 
-           
-                
-             
-            
+       
             </ul>
+            
+            <ul class="posts" >
+              
+              {% for cat in site.categories %}
+                   <h4>{{cat[0] | capitalize}}</h4>
+                 {% for post in cat[1]  %}
+                   <li >
+                           <a href="{{ post.url | prepend: site.baseurl }}"><h6>{{ post.title}}</h6></a>
+                     </li>
+                   {% endfor %}
+                 {% endfor %}
+                    
+                    <h4> Python</h4>  
+               {% for empirical in site.empirical  %}
+               
+                       <li>
+                           <a href="{{ empirical.url | prepend: site.baseurl }}"><h6>{{ empirical.name}}</h6></a>
+                           
+                     </li>
+                   {% endfor %}
+                    
+        
+               </ul>
         </div>
 
 <!--         <p class="rss-subscribe">subscribe <a href="{{ site.baseurl }}/feed.xml">via RSS</a></p> -->
