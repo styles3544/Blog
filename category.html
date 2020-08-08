@@ -7,7 +7,7 @@ layout: default
             <ul class="posts" >
               
            {% for cat in site.categories %}
-                <h4>{{cat[0] | capitalize}}</h4>
+                <h4>{{cat[1] | capitalize}}</h4>
               {% for post in cat[1]  %}
                 <li >
                         <a href="{{ post.url | prepend: site.baseurl }}"><h6>{{ post.title}}</h6></a>
