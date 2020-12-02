@@ -60,6 +60,22 @@
         {% endfor %}
     {%- endif -%}
 
+    
+    
+    {%- if site.empirical.size > 0 -%}
+    {% for empirical in site.empirical reversed limit:10 %}
+        <entry>
+            <title>{{ empirical.name}}</title>
+            <id> https://styles3544.github.io{{ empirical.url | prepend: site.baseurl }} </id>
+            <link href="https://styles3544.github.io{{ empirical.url | prepend: site.baseurl }}"/>
+            <updated>{{ empirical.date | date_to_xmlschema }}</updated>
+            <summary>
+                {{ empirical.content | markdownify | strip_html | truncatewords: 50  }}
+            </summary>
+        </entry>
+        {% endfor %}
+    {%- endif -%}
+
 </feed>
 
 
