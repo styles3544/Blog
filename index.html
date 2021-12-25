@@ -10,7 +10,7 @@ layout: default
             
                     {%- if site.posts.size > 0 -%}
             
-            {% for post in site.posts limit:2 %}
+            {% for post in site.posts limit:10 %}
             <li class="post-container">
             <li>
                 <a href="{{  post.url | relative_url }}">
@@ -29,7 +29,7 @@ layout: default
 
          {%- if site.python_projects.size > 0 -%}
             
-            {% for python_projects in site.python_projects reversed limit:3 %}
+            {% for python_projects in site.python_projects reversed limit:10 %}
             <li class="post-container">
             <li>
                 <a href="{{ python_projects.url | relative_url }}">
@@ -49,7 +49,7 @@ layout: default
 
             {%- if site.anime.size > 0 -%}
             
-            {% for anime in site.anime reversed limit:2 %}
+            {% for anime in site.anime reversed limit:10 %}
             <li class="post-container">
             <li>
                 <a href="{{ anime.url | prepend: site.baseurl }}">
