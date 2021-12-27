@@ -27,25 +27,7 @@ layout: default
             {% endfor %}
             {%- endif -%}
 
-         {%- if site.python_projects.size > 0 -%}
-            
-            {% for python_projects in site.python_projects reversed limit:10 %}
-            <li class="post-container">
-            <li>
-                <a href="{{ python_projects.url | relative_url }}">
-                    <h3>{{ python_projects.name}}</h3>
-                </a>
-                <span class="date">{{ python_projects.date | date: "%b %-d, %Y" }}</span>
-                <p class="categories">
-                    {{ python_projects.categories | join: ', ' }}
-                </p>
-                <p id="para">
-                    {{ python_projects.content | markdownify | strip_html | truncatewords: 35  }}
-                </p>
-            </li>
-            {% endfor %}
-            {%- endif -%}
-
+         
 
             {%- if site.nlp.size > 0 -%}
             
@@ -65,6 +47,26 @@ layout: default
             </li>
             {% endfor %}
             {%- endif -%}
+
+            {%- if site.python_projects.size > 0 -%}
+            
+            {% for python_projects in site.python_projects reversed limit:10 %}
+            <li class="post-container">
+            <li>
+                <a href="{{ python_projects.url | relative_url }}">
+                    <h3>{{ python_projects.name}}</h3>
+                </a>
+                <span class="date">{{ python_projects.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ python_projects.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ python_projects.content | markdownify | strip_html | truncatewords: 35  }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
+
 
  
             
