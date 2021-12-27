@@ -34,7 +34,7 @@ collections:
   python_projects:
     output: true
     permalink: /python/:name/
-  empirical:
+  nlp:
     output: true
     permalink: /nlp/:name/
 
