@@ -55,7 +55,7 @@ layout: default
                 <a href="{{ nlp.url | prepend: site.baseurl }}">
                     <h3>{{ nlp.name}}</h3>
                 </a>
-                <span class="date">{{ python_projects.date | date: "%b %-d, %Y" }}</span>
+                <span class="date">{{ nlp.date | date: "%b %-d, %Y" }}</span>
                 <p class="categories">
                     {{ nlp.categories | join: ', ' }}
                 </p>
