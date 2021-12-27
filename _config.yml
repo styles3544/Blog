@@ -36,7 +36,7 @@ collections:
     permalink: /python/:name/
   empirical:
     output: true
-    permalink: /empirical/:name/
+    permalink: /nlp/:name/
 
 permalink: pretty
 
