@@ -47,20 +47,20 @@ layout: default
             {%- endif -%}
 
 
-            {%- if site.anime.size > 0 -%}
+            {%- if site.nlp.size > 0 -%}
             
-            {% for anime in site.anime reversed limit:10 %}
+            {% for nlp in site.nlp reversed limit:10 %}
             <li class="post-container">
             <li>
-                <a href="{{ anime.url | prepend: site.baseurl }}">
-                    <h3>{{ anime.name}}</h3>
+                <a href="{{ nlp.url | prepend: site.baseurl }}">
+                    <h3>{{ nlp.name}}</h3>
                 </a>
                 <span class="date">{{ python_projects.date | date: "%b %-d, %Y" }}</span>
                 <p class="categories">
-                    {{ anime.categories | join: ', ' }}
+                    {{ nlp.categories | join: ', ' }}
                 </p>
                 <p id="para">
-                    {{ anime.content | markdownify | strip_html | truncatewords: 35  }}
+                    {{ nlp.content | markdownify | strip_html | truncatewords: 35  }}
                 </p>
             </li>
             {% endfor %}
