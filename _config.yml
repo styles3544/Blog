@@ -37,6 +37,9 @@ collections:
   nlp:
     output: true
     permalink: /nlp/:name/
+  ml:
+    output: true
+    permalink: /ml/:name/
 
 permalink: pretty
 

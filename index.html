@@ -27,6 +27,25 @@ layout: default
             {% endfor %}
             {%- endif -%}
 
+            {%- if site.ml.size > 0 -%}
+            
+            {% for ml in site.ml reversed limit:10 %}
+            <li class="post-container">
+            <li>
+                <a href="{{ ml.url | prepend: site.baseurl }}">
+                    <h3>{{ ml.name}}</h3>
+                </a>
+                <span class="date">{{ ml.date | date: "%b %-d, %Y" }}</span>
+                <p class="categories">
+                    {{ ml.categories | join: ', ' }}
+                </p>
+                <p id="para">
+                    {{ ml.content | markdownify | strip_html | truncatewords: 35  }}
+                </p>
+            </li>
+            {% endfor %}
+            {%- endif -%}
+
          
 
             {%- if site.nlp.size > 0 -%}
